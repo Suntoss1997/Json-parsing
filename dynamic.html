@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv=”refresh” content="5"/>
+    <title>Chicken Brooder Monitor</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+    <title>Dynamic Page</title>
+    <script>
+
+        function call()
+        {
+                var xhttp = new XMLHttpRequest();
+                //x= "{{ csrf_token }}";
+
+                xhttp.onreadystatechange = function()
+                {
+
+                    if(this.readyState==4 && this.status==200)
+                    {
+                      var myObj = JSON.parse(this.responseText);
+                      document.getElementById("fourth").innerHTML = myObj.temperature;
+                      document.getElementById("first").innerHTML= myObj.humidity;
+                      document.getElementById("second").innerHTML = (22368-myObj.scale_1)*0.01;
+                      document.getElementById("sixth").innerHTML= (22800-myObj.scale_2)*0.01;
+                    }
+                }
+                xhttp.open("POST", "http://192.168.4.1", true);
+              //  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              //  xhttp.setRequestHeader('X-CSRFToken', x);
+                var text = document.getElementById("button").style.backgroundColor;
+                text = "clicked="+text;
+                xhttp.send(text);
+        }
+    </script>
+  </head>
+  <body>
+
+    <header>
+         <div class="container">
+           <div>
+             <h1><span class="highlight">Intensive Electronic Chicken Brooding System</h1>
+
+       </header>
+
+
+
+
+         <div class="container" >
+           <article id="main-col">
+             <h2 class="page-title">DATA MONITOR</h2>
+             <h2>Temperature(Centigrade):</h2>
+            <div class="dark" id="fourth">
+
+   <h3 ></h3>
+   
+
+   </div>
+   <h2>Humidity(Percentage):</h2>
+   <div class="dark" id="first">
+     <h3 ></h3>
+   </div>
+   <h2>Scale Reading 1 (% Food Remaining):</h2>
+   <div class="dark" id="second">
+     <h3 ></h3>
+  </div>
+  <h2>Scale Reading 2 (% Water Remaining):</h2>
+             <div class="dark" id="sixth">
+               <h3 ></h3>
+            </div>
+    <input type="button" style = "background-color: green; height: 30px; width: 100px; border:none;color: white;" value ="Click to refresh" onclick="call()" id="button"/>
+  </body>
+</html>

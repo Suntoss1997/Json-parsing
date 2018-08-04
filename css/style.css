@@ -1,0 +1,41 @@
+body{
+  font: 15px/1.5 Arial, Helvetica,sans-serif;
+  padding:0;
+  margin:0;
+  background-color:#61d370;
+}
+.container{
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+}
+
+.dark{
+  padding:15px;
+  background:#9b8a53;
+  color:#ffffff;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+header{
+  background:#044a75;
+  color:#ffffff;
+  padding-top:30px;
+  min-height:70px;
+  border-bottom:#cae7e5 9px solid;
+}
+
+
+
+header nav{
+  float:right;
+  margin-top:10px;
+}
+
+header .highlight, header .current a{
+  color:#f3f3f3;
+  font-weight:bold;
+  text-align:center;
+}
+
